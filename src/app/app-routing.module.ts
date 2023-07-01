@@ -5,10 +5,10 @@ import { AssignmentOrRecieptComponent } from './warehouse/presentation/assignmen
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'product-list', pathMatch: 'full'
+    path: '', redirectTo: 'warehouse', pathMatch: 'full'
   },
   {
-    path: '**', redirectTo: 'product-list', pathMatch: 'full'
+    path: '**', redirectTo: 'warehouse', pathMatch: 'full'
   },
   {
     path: 'warehouse',
