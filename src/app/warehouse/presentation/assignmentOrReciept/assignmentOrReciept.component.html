@@ -1,0 +1,51 @@
+<p>
+  assignmentOrReciept works!
+</p>
+
+<div class="container">
+  <div class="header">
+    <h2>
+      لیست حواله و رسید
+    </h2>
+    <button class="btn btn-success" (click)="showModal()">
+      درخواست از انبار
+    </button>
+  </div>
+  <div class="body">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>شناسه فاکتور</th>
+          <th>شناسه کالا</th>
+          <th>نام کالا</th>
+          <th>تعداد</th>
+          <th>زمان تراکنش</th>
+          <th> نوع تراکنش</th>
+          <th> قیمت</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of AssignmentOrReceiptList; let i=index">
+          <td>{{item.id}}</td>
+          <td>{{item.goodsId}}</td>
+          <td>{{item.goodName}}</td>
+          <td>{{item.count}}</td>
+          <td>{{item.ActionDate}}</td>
+          <td>{{item.type}}</td>
+          <td>{{item.Price}}</td>
+          <!-- <td> <button class="btn btn-warning" (click)="showModalForEdit(item)">
+              ویرایش
+            </button>
+          </td>           -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="modal-wrapper" *ngIf="activeModal">
+  <app-requestForWarehouse (onClose)="closeModal()" [editId]="editId" (upsertItem)="upsertGoodList($event)"
+     [AssignmentOrRecieptList]="AssignmentOrReceiptList"></app-requestForWarehouse>
+</div>
+<!-- [catgories]="goodCategory" -->

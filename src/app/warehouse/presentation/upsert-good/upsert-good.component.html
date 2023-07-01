@@ -1,0 +1,32 @@
+<p>
+  upsert-good works!
+</p>
+<div class="content-modal">
+  <span (click)="close()" class="close">
+    x
+  </span>
+  <h4>
+    اضافه کردن محصول جدید
+  </h4>
+
+  <div class="form-new">
+    <form #upsertGoodForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="group_form">
+        <label>نام کالا</label>
+        <input type="text" name="goodName" class="form-control" [(ngModel)]="DataFromEdit.goodName" />
+      </div>     
+      <div class="group_form">
+        <label>موجودی انبار</label>
+        <input type="number" name="count" class="form-control" [(ngModel)]="DataFromEdit.count" />
+      </div>
+    </form>
+    <div class="action-form">
+      <button class="btn btn-secoundry" (click)="close()">
+        لغو
+      </button>
+      <button class="btn btn-success" (click)="onSubmit()">
+        ثبت
+      </button>
+    </div>
+  </div>
+</div>

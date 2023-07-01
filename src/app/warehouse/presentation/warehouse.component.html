@@ -1,0 +1,42 @@
+
+
+<div class="container">
+  <div class="header">
+    <h2>
+      لیست محصولات انبار
+    </h2>
+    <button class="btn btn-success" (click)="showModal()">
+      اضافه کردن محصول جدید
+    </button>
+  </div>
+  <div class="body">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>شناسه کالا</th>
+          <th>نام کالا</th>
+          <th> موجودی انبار</th>
+          <th> ویرایش</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of goodsList; let i=index">
+          <td>{{item.id}}</td>
+          <td>{{item.goodName}}</td>
+          <td>{{item.count}}</td>
+          <td> <button class="btn btn-warning" (click)="showModalForEdit(item)">
+              ویرایش
+            </button>
+          </td>          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="modal-wrapper" *ngIf="activeModal">
+  <app-upsert-good (onClose)="closeModal()" [editId]="editId" (upsertItem)="upsertGoodList($event)"
+    [catgories]="goodCategory" [goodsList]="goodsList"></app-upsert-good>
+</div>
+

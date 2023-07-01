@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "goodName": "آرد",
+        "count": 500        
+    },
+    {
+        "id": 2,
+        "goodName": "برنج",
+        "count": 500       
+    },
+    {
+        "id": 3,
+        "goodName": "لوبیا",
+        "count": 1000     
+    },
+    {
+        "id": 4,
+        "goodName": "شکر",
+        "count": 200       
+    },
+    {
+        "id": 5,
+        "goodName": "عدس",
+        "count": 1000
+    },
+    {
+        "id": 6,
+        "goodName": "کنجد",
+        "count": 500
+    },
+    {
+        "id": 7,
+        "goodName": "جو",
+        "count": 300
+    }
+]
