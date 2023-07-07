@@ -17,6 +17,10 @@ export class WarehouseService {
       count: data.count,
     });
   }
+
+  updateGoodList(goodList:GoodsModel){
+    
+  }
   // updateGoodListJsonFile(data: GoodsModel) {
   //   // const data = { name: 'John Doe', age: 30 };
   //   this.http.put('./goodsList.json', data).subscribe(

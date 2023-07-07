@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AssignmentOrRecieptModel } from 'src/app/warehouse/application/goods.Model';
+import { AssignmentOrRecieptModel, GoodsModel } from 'src/app/warehouse/application/goods.Model';
 import { WarehouseService } from 'src/app/warehouse/application/warehouse.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class ReceiptRequestComponent implements OnInit {
   // DataFromEdit: GoodsModel[]=[]
   DataFromEdit!: any
   receiptRequestForm: any;
+  dataForUpsertGood:GoodsModel
 
 
   constructor(private warehouseService: WarehouseService) { }
@@ -35,13 +36,18 @@ export class ReceiptRequestComponent implements OnInit {
         id: randomIdCreate(0, 1000),
         goodsId: dataForm.goodsId,
         goodName: dataForm.goodName,
-        count: 0,
+        count: dataForm.count,
         ActionDate: dataForm.ActionDate,
-        type: dataForm.type,
-        Price: dataForm.Price
+        Price: dataForm.Price,
+        type: "receipt"
       }
-      this.warehouseService.setValueForm(this.receiptRequestForm, dataForm)
-      this.upsertItem.emit(item)
+      this.dataForUpsertGood={
+        id:123,
+        goodName:dataForm.goodName,
+        count:dataForm.count
+      }
+      this.warehouseService.updateGoodList(this.dataForUpsertGood)
+      // this.upsertItem.emit(item)
       this.onClose.emit()
     } 
   }

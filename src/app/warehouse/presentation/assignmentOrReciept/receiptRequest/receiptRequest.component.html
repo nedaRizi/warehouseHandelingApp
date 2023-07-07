@@ -12,12 +12,16 @@
 
   <div class="form-new">
     <form #receiptRequestForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="group_form">
+      <!-- <div class="group_form">
         <label>شناسه کالا</label>
         <input type="number" name="goodsId" class="form-control" [(ngModel)]="DataFromEdit.goodsId" />
+      </div> -->
+      <div class="group_form">
+        <label>انتخاب کالا</label>
+        <input type="text" name="goodName" class="form-control" [(ngModel)]="DataFromEdit.goodName" />
       </div>
       <div class="group_form">
-        <label>نام کالا</label>        
+        <label>کالای جدید</label>
         <input type="text" name="goodName" class="form-control" [(ngModel)]="DataFromEdit.goodName" />
       </div>
       <div class="group_form">
@@ -25,26 +29,15 @@
         <input type="number" name="count" class="form-control" [(ngModel)]="DataFromEdit.count" />
       </div>
       <div class="group_form">
-        <label>قیمت</label>
+        <label>قیمت رسید فاکتور شده</label>
         <input type="money" name="Price" class="form-control" [(ngModel)]="DataFromEdit.Price" />
       </div>
       <div class="group_form">
         <label>زمان تراکنش</label>
         <input type="date" name="ActionDate" class="form-control" [(ngModel)]="DataFromEdit.ActionDate" />
       </div>
-      <div class="group_form">
-        <label>نوع تراکنش</label>
-        <input type="text" name="type" class="form-control" [(ngModel)]="DataFromEdit.type" />
-      </div>  
-         
-      <!-- <div class="group_form">
-        <label>نوع تراکنش</label>
-        <select name="category" class="form-control" [(ngModel)]="DataFromEdit.category">
-          <option *ngFor="let category of catgories" [value]="category.key">{{category.value}}</option>
-        </select>
-      </div> -->
-      
     </form>
+    
     <div class="action-form">
       <button class="btn btn-secoundry" (click)="close()">
         لغو
