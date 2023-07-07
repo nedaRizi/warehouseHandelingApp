@@ -29,6 +29,7 @@ export class ReceiptRequestComponent implements OnInit {
     // this.editId = null
   };
 
+  warehouseCount:number
   onSubmit() {
     var dataForm = this.receiptRequestForm.value;
     if (this.receiptRequestForm.valid && dataForm != null) {
@@ -44,7 +45,7 @@ export class ReceiptRequestComponent implements OnInit {
       this.dataForUpsertGood={
         id:123,
         goodName:dataForm.goodName,
-        count:dataForm.count
+        count:dataForm.count+this.warehouseCount
       }
       this.warehouseService.updateGoodList(this.dataForUpsertGood)
       // this.upsertItem.emit(item)
