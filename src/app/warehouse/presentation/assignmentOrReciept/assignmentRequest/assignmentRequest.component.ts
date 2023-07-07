@@ -17,6 +17,7 @@ export class AssignmentRequestComponent implements OnInit {
   // DataFromEdit: GoodsModel[]=[]
   DataFromEdit!: any
   assignmentRequestForm: any;
+  dataForUpsertGood:GoodsModel
   jsonGoodList: any
   goodsList: GoodsModel[]
 
@@ -33,6 +34,7 @@ export class AssignmentRequestComponent implements OnInit {
     // this.editId = null
   };
 
+  warehouseCount:number
   onSubmit() {
     var dataForm = this.assignmentRequestForm.value;
     if (this.assignmentRequestForm.valid && dataForm != null) {
@@ -40,13 +42,19 @@ export class AssignmentRequestComponent implements OnInit {
         id: randomIdCreate(0, 1000),
         goodsId: dataForm.goodsId,
         goodName: dataForm.goodName,
-        count: 0,
+        count: dataForm.count,
         ActionDate: dataForm.ActionDate,
-        type: dataForm.type,
-        Price: dataForm.Price
+        Price: dataForm.Price,
+        type: "Assignment"
       }
-      this.warehouseService.setValueForm(this.assignmentRequestForm, dataForm)
-      this.upsertItem.emit(item)
+      this.dataForUpsertGood={
+        id:dataForm.goodsId,
+        goodName:dataForm.goodName,
+        count:this.warehouseCount - dataForm.count
+      }
+      this.warehouseService.updateGoodList(this.dataForUpsertGood)
+      // this.warehouseService.setValueForm(this.assignmentRequestForm, dataForm)
+      // this.upsertItem.emit(item)
       this.onClose.emit()
     } 
   }

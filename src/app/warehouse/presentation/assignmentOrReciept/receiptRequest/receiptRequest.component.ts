@@ -17,11 +17,14 @@ export class ReceiptRequestComponent implements OnInit {
   DataFromEdit!: any
   receiptRequestForm: any;
   dataForUpsertGood:GoodsModel
+  jsonGoodList: any
+  goodsList: GoodsModel[]
 
 
   constructor(private warehouseService: WarehouseService) { }
 
   ngOnInit() {
+    this.goodsList = this.jsonGoodList.default
   }
 
   close() {
@@ -43,7 +46,7 @@ export class ReceiptRequestComponent implements OnInit {
         type: "receipt"
       }
       this.dataForUpsertGood={
-        id:123,
+        id:dataForm.goodsId,
         goodName:dataForm.goodName,
         count:dataForm.count+this.warehouseCount
       }
