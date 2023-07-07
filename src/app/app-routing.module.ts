@@ -5,22 +5,22 @@ import { AssignmentOrRecieptComponent } from './warehouse/presentation/assignmen
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'warehouse', pathMatch: 'full'
-  },
-  {
-    path: '**', redirectTo: 'warehouse', pathMatch: 'full'
-  },
-  {
     path: 'warehouse',
     loadChildren: () =>
-      import('./warehouse/warehouse.module').then(m => m.WarehouseModule),
+    import('./warehouse/warehouse.module').then(m => m.WarehouseModule),
     component: WarehouseComponent
   },
   {
     path: 'assignmentorreceipt',
     loadChildren: () =>
-      import('./warehouse/presentation/assignmentOrReciept/assignmentOrReciept.module').then(m => m.AssignmentOrRecieptModule),
+    import('./warehouse/presentation/assignmentOrReciept/assignmentOrReciept.module').then(m => m.AssignmentOrRecieptModule),
     component: AssignmentOrRecieptComponent
+  },
+  {
+    path: '', redirectTo: 'warehouse', pathMatch: 'full'
+  },
+  {
+    path: '**', redirectTo: 'warehouse', pathMatch: 'full'
   }
 ];
 

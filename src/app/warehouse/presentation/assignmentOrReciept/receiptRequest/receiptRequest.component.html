@@ -1,27 +1,32 @@
 <p>
-  requestForWarehouse works!
+  receiptRequest works!
 </p>
+
 <div class="content-modal">
   <span (click)="close()" class="close">
     x
   </span>
   <h4>
-    درخواست حواله
+    دریافت رسید
   </h4>
 
   <div class="form-new">
-    <form #assignmentOrReceiptForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #receiptRequestForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="group_form">
         <label>شناسه کالا</label>
         <input type="number" name="goodsId" class="form-control" [(ngModel)]="DataFromEdit.goodsId" />
       </div>
       <div class="group_form">
-        <label>نام کالا</label>
+        <label>نام کالا</label>        
         <input type="text" name="goodName" class="form-control" [(ngModel)]="DataFromEdit.goodName" />
       </div>
       <div class="group_form">
         <label>تعداد</label>
         <input type="number" name="count" class="form-control" [(ngModel)]="DataFromEdit.count" />
+      </div>
+      <div class="group_form">
+        <label>قیمت</label>
+        <input type="money" name="Price" class="form-control" [(ngModel)]="DataFromEdit.Price" />
       </div>
       <div class="group_form">
         <label>زمان تراکنش</label>
@@ -31,10 +36,7 @@
         <label>نوع تراکنش</label>
         <input type="text" name="type" class="form-control" [(ngModel)]="DataFromEdit.type" />
       </div>  
-      <div class="group_form">
-        <label>قیمت</label>
-        <input type="money" name="Price" class="form-control" [(ngModel)]="DataFromEdit.Price" />
-      </div>   
+         
       <!-- <div class="group_form">
         <label>نوع تراکنش</label>
         <select name="category" class="form-control" [(ngModel)]="DataFromEdit.category">

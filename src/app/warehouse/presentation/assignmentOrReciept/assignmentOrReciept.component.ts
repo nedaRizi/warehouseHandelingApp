@@ -13,6 +13,8 @@ export class AssignmentOrRecieptComponent implements OnInit {
   jsonAssignmentOrReceiptList: any
   AssignmentOrReceiptList: AssignmentOrRecieptModel[]
   activeModal: boolean = false
+  activeAssignmentModal: boolean = false
+  activeReceiptModal: boolean = false
   editId: number
   goodsList: GoodsModel[]
   jsonGoodList: any
@@ -27,12 +29,20 @@ export class AssignmentOrRecieptComponent implements OnInit {
     this.goodsList = this.jsonGoodList.default
   }
 
-  showModal() {
+  showAssignmentModal() {
     // this.editId = null;
-    this.activeModal = true
+    // this.activeModal = true
+    this.activeAssignmentModal = true
+  }
+  showReceiptModal() {
+    // this.editId = null;
+    // this.activeModal = true
+    this.activeReceiptModal = true
   }
   closeModal() {
-    this.activeModal = false
+    // this.activeModal = false
+    this.activeAssignmentModal = false
+    this.activeReceiptModal = false
   }
 
   upsertGoodList(newItem: any) {

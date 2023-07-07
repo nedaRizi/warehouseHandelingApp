@@ -1,6 +1,7 @@
 <p>
-  requestForWarehouse works!
+  assignmentRequest works!
 </p>
+
 <div class="content-modal">
   <span (click)="close()" class="close">
     x
@@ -10,31 +11,39 @@
   </h4>
 
   <div class="form-new">
-    <form #assignmentOrReceiptForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="group_form">
+    <form #assignmentRequestForm="ngForm" (ngSubmit)="onSubmit()">
+      <!-- <div class="group_form">
         <label>شناسه کالا</label>
         <input type="number" name="goodsId" class="form-control" [(ngModel)]="DataFromEdit.goodsId" />
-      </div>
+      </div> -->
       <div class="group_form">
         <label>نام کالا</label>
+        <!-- <select>
+          <option class="form-control" *ngFor="let item of goodsList" [value]="item.id">{{ item.goodName }}</option>
+        </select> -->
         <input type="text" name="goodName" class="form-control" [(ngModel)]="DataFromEdit.goodName" />
       </div>
       <div class="group_form">
-        <label>تعداد</label>
+        <label>تعداد کل موجود در انبار</label>
         <input type="number" name="count" class="form-control" [(ngModel)]="DataFromEdit.count" />
+      </div>
+      <div class="group_form">
+        <label>تعداد درخواستی</label>
+        <input type="number" name="count" class="form-control" [(ngModel)]="DataFromEdit.count" />
+      </div>
+      <div class="group_form">
+        <label>قیمت حواله شد</label>
+        <input type="money" name="Price" class="form-control" [(ngModel)]="DataFromEdit.Price" />
       </div>
       <div class="group_form">
         <label>زمان تراکنش</label>
         <input type="date" name="ActionDate" class="form-control" [(ngModel)]="DataFromEdit.ActionDate" />
       </div>
-      <div class="group_form">
+      <!-- <div class="group_form">
         <label>نوع تراکنش</label>
         <input type="text" name="type" class="form-control" [(ngModel)]="DataFromEdit.type" />
-      </div>  
-      <div class="group_form">
-        <label>قیمت</label>
-        <input type="money" name="Price" class="form-control" [(ngModel)]="DataFromEdit.Price" />
-      </div>   
+      </div>   -->
+         
       <!-- <div class="group_form">
         <label>نوع تراکنش</label>
         <select name="category" class="form-control" [(ngModel)]="DataFromEdit.category">

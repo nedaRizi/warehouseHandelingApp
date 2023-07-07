@@ -7,10 +7,22 @@
     <h2>
       لیست حواله و رسید
     </h2>
-    <button class="btn btn-success" (click)="showModal()">
-      درخواست از انبار
-    </button>
   </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-success" (click)="showAssignmentModal()">
+        درخواست حواله
+      </button>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-success" (click)="showReceiptModal()">
+         دریافت رسید
+      </button>
+    </div>
+  </div>
+
+
   <div class="body">
     <table class="styled-table">
       <thead>
@@ -44,8 +56,19 @@
 </div>
 
 
-<div class="modal-wrapper" *ngIf="activeModal">
+<div class="modal-wrapper" *ngIf="activeAssignmentModal">
+  <app-assignmentRequest (onClose)="closeModal()" [editId]="editId" (upsertItem)="upsertGoodList($event)"
+     [AssignmentOrRecieptList]="AssignmentOrReceiptList"></app-assignmentRequest>
+</div>
+<!-- [catgories]="goodCategory" -->
+
+<div class="modal-wrapper" *ngIf="activeReceiptModal">
+  <app-receiptRequest (onClose)="closeModal()" [editId]="editId" (upsertItem)="upsertGoodList($event)"
+     [AssignmentOrRecieptList]="AssignmentOrReceiptList"></app-receiptRequest>
+</div>
+
+<!-- <div class="modal-wrapper" *ngIf="activeModal">
   <app-requestForWarehouse (onClose)="closeModal()" [editId]="editId" (upsertItem)="upsertGoodList($event)"
      [AssignmentOrRecieptList]="AssignmentOrReceiptList"></app-requestForWarehouse>
-</div>
+</div> -->
 <!-- [catgories]="goodCategory" -->
