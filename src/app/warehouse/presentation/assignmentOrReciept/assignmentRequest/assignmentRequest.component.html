@@ -11,54 +11,49 @@
   </h4>
 
   <div class="form-new">
-    <form #assignmentRequestForm="ngForm" (ngSubmit)="onSubmit()">
-      <!-- <div class="group_form">
+    <form #assignmentRequestForm="ngForm" (ngSubmit)="onSubmit()" id="assignmentRequestForm">
+      <div class="group_form">
         <label>شناسه کالا</label>
-        <input type="number" name="goodsId" class="form-control" [(ngModel)]="DataFromEdit.goodsId" />
-      </div> -->
+        <input class="form-control" type="number" name="goodsId" id="goodsId" [(ngModel)]="assignmentInfo.goodsId" />
+      </div>
       <div class="group_form">
         <label>نام کالا</label>
-        <select>
-          <option class="form-control" *ngFor="let item of goodsList" [value]="item.id">{{ item.goodName }}</option>
-        </select>
-        <!-- <input type="text" name="goodName" class="form-control" [(ngModel)]="DataFromEdit.goodName" /> -->
+        <input class="form-control" type="text" name="goodName" id="goodName" [(ngModel)]="assignmentInfo.goodName" />
+        <!-- <select>
+          <option class="form-control" *ngFor="let item of goodsList" [value]="item.id">{{item.goodName}}</option>
+        </select> -->
+        <!-- <select> -->
+          <!-- <option class="form-control" *ngFor="let items of goodsList" [value]="items.id">{{items.goodName}}</option> -->
+          <!-- <option name="goodName" [(ngModel)]="assignmentInfo.goodName">آرد</option> -->
+          <!-- <option name="goodName">جو</option>
+          <option name="goodName">گندم</option>
+          <option name="goodName">کنجد</option> -->
+        <!-- </select> -->
       </div>
-      <div class="group_form">
+      <!-- <div class="group_form">
         <label>تعداد کل موجود در انبار</label>
-        <input type="number" name="count" class="form-control" [(ngModel)]="DataFromEdit.count" />
-      </div>
+        <input type="number" name="stock" class="form-control"  />
+      </div> -->
       <div class="group_form">
         <label>تعداد درخواستی</label>
-        <input type="number" name="count" class="form-control" [(ngModel)]="DataFromEdit.count" />
+        <input class="form-control" type="number" name="count" id="count"  [(ngModel)]="assignmentInfo.count" />
       </div>
       <div class="group_form">
         <label>قیمت حواله شد</label>
-        <input type="money" name="Price" class="form-control" [(ngModel)]="DataFromEdit.Price" />
+        <input class="form-control" type="money" name="Price" id="Price" [(ngModel)]="assignmentInfo.Price" />
       </div>
       <div class="group_form">
         <label>زمان تراکنش</label>
-        <input type="date" name="ActionDate" class="form-control" [(ngModel)]="DataFromEdit.ActionDate" />
+        <input class="form-control" type="date" name="ActionDate" id="ActionDate" [(ngModel)]="assignmentInfo.ActionDate" />
       </div>
-      <!-- <div class="group_form">
-        <label>نوع تراکنش</label>
-        <input type="text" name="type" class="form-control" [(ngModel)]="DataFromEdit.type" />
-      </div>   -->
-         
-      <!-- <div class="group_form">
-        <label>نوع تراکنش</label>
-        <select name="category" class="form-control" [(ngModel)]="DataFromEdit.category">
-          <option *ngFor="let category of catgories" [value]="category.key">{{category.value}}</option>
-        </select>
-      </div> -->
-      
+      <div class="action-form">
+        <button class="btn btn-secoundry" (click)="close()">
+          لغو
+        </button>
+        <button type="submit" class="btn btn-success" (click)="onSubmit()">
+          ثبت
+        </button>
+      </div>
     </form>
-    <div class="action-form">
-      <button class="btn btn-secoundry" (click)="close()">
-        لغو
-      </button>
-      <button class="btn btn-success" (click)="onSubmit()">
-        ثبت
-      </button>
-    </div>
   </div>
 </div>

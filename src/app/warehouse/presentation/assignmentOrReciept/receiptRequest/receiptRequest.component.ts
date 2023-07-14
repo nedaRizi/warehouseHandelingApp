@@ -16,15 +16,55 @@ export class ReceiptRequestComponent implements OnInit {
   // DataFromEdit: GoodsModel[]=[]
   DataFromEdit!: any
   receiptRequestForm: any;
-  dataForUpsertGood:GoodsModel
+  dataForUpsertGood: GoodsModel
   jsonGoodList: any
+
   goodsList: GoodsModel[]
+
 
 
   constructor(private warehouseService: WarehouseService) { }
 
   ngOnInit() {
-    this.goodsList = this.jsonGoodList.default
+    // this.goodsList = this.jsonGoodList.default
+    this.goodsList = [
+      {
+        id: 1,
+        goodName: 'آرد',
+        count: 500
+      },
+      {
+        id: 2,
+        goodName: 'برنج',
+        count: 500
+      },
+      {
+        id: 3,
+        goodName: 'لوبیا',
+        count: 1000
+      },
+      {
+        id: 4,
+        goodName: 'شکر',
+        count: 200
+      },
+      {
+        id: 5,
+        goodName: 'عدس',
+        count: 1000
+      },
+      {
+        id: 6,
+        goodName: 'کنجد',
+        count: 500
+      },
+      {
+        id: 7,
+        goodName: 'جو',
+        count: 300
+      }
+    ];
+
   }
 
   close() {
@@ -32,7 +72,7 @@ export class ReceiptRequestComponent implements OnInit {
     // this.editId = null
   };
 
-  warehouseCount:number
+  warehouseCount: number
   onSubmit() {
     var dataForm = this.receiptRequestForm.value;
     if (this.receiptRequestForm.valid && dataForm != null) {
@@ -45,15 +85,15 @@ export class ReceiptRequestComponent implements OnInit {
         Price: dataForm.Price,
         type: "receipt"
       }
-      this.dataForUpsertGood={
-        id:dataForm.goodsId,
-        goodName:dataForm.goodName,
-        count:dataForm.count+this.warehouseCount
+      this.dataForUpsertGood = {
+        id: dataForm.goodsId,
+        goodName: dataForm.goodName,
+        count: dataForm.count + this.warehouseCount
       }
       this.warehouseService.updateGoodList(this.dataForUpsertGood)
       // this.upsertItem.emit(item)
       this.onClose.emit()
-    } 
+    }
   }
 }
 
